@@ -1,7 +1,25 @@
 body{
     background-color: rgb(228, 228, 228);
 }
-
 .main{
     padding: 50px;
+}
+.navbar{
+    background-color:#1f456a !important;
+}
+#search{
+    background-color:#1f456a !important;
+}
+.dropdown-menu{
+    background-color:#1f456a !important;
+    color: azure !important;
+}
+// .dropdown-menu:hover{
+//     background-color:#818181 !important;
+// }
+.dropdown-item{
+    color: azure !important;
+}
+.dropdown-item:hover{
+    color: rgb(10, 10, 10) !important;
 }

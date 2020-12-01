@@ -7,9 +7,9 @@
       <label for="exampleFormControlInput1">Title</label>
       <input type="title" class="form-control" id="exampleFormControlInput1" placeholder="Title" name="title">
     </div>
-    <div class="form-group">
+    <div class="form-group" >
       <label for="bodyText">Body</label>
-      <textarea class="form-control" placeholder="Body" id="textBody" name="body" rows="7"></textarea>
+      <textarea class="form-control" placeholder="Body" id="editor"  name="body" rows="10" ></textarea>
     </div>
     {{-- <div class="input-group mb-3">
         <div class="custom-file">

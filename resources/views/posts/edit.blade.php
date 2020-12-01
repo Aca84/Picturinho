@@ -10,7 +10,7 @@
     </div>
     <div class="form-group">
       <label for="bodyText">Body</label>
-    <textarea class="form-control" placeholder="Body" id="textBody" name="body" rows="7">{{$posts->body}}</textarea>
+    <textarea class="form-control" placeholder="Body" id="editor" name="body" rows="10">{{$posts->body}}</textarea>
     </div>
     {{-- <div class="input-group mb-3">
         <div class="custom-file">
