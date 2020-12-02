@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layouts.app')
 @section('content')
 
 <form method="POST" action="{{action('App\Http\Controllers\PostsController@update', $posts->id)}}">
