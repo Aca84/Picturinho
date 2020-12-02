@@ -14,10 +14,10 @@
         {{-- JS --}}
 
         {{-- CKEditor 5 --}}
-        <script src="https://cdn.ckeditor.com/ckeditor5/23.1.0/classic/ckeditor.js"></script>
-        
+        <script src="https://cdn.ckeditor.com/ckeditor5/23.1.0/classic/ckeditor.js"></script>     
     </head>
     <body>
+
         @include('include/navbar')
 
         <div class="main">
@@ -34,5 +34,6 @@
                     console.error( error );
                 } );
         </script>
+
     </body>
 </html>

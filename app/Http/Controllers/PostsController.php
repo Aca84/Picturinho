@@ -14,7 +14,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::latest()->paginate(10);
+        $posts = Post::latest()->paginate(10); // This will return last created post on top
         return view('posts.index')->with('posts', $posts);
     }
 
@@ -58,7 +58,6 @@ class PostsController extends Controller
     public function show($id)
     {
         $posts = Post::find($id);
-
         return view('posts.show')->with('posts',$posts);
     }
 
@@ -71,7 +70,6 @@ class PostsController extends Controller
     public function edit($id)
     {
         $posts = Post::find($id);
-        
         return view('posts/edit')->with('posts',$posts);
     }
 
