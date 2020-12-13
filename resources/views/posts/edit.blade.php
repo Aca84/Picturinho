@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<form method="POST" action="{{action('App\Http\Controllers\PostsController@update', $posts->id)}}">
+<form method="POST" action="{{action('App\Http\Controllers\PostsController@update', $posts->id)}}" enctype="multipart/form-data">
     @method('PATCH')
     @csrf
     <div class="form-group">
@@ -10,14 +10,16 @@
     </div>
     <div class="form-group">
       <label for="bodyText">Body</label>
-    <textarea class="form-control" placeholder="Body" id="editor" name="body" rows="10">{{$posts->body}}</textarea>
+      <textarea class="form-control" placeholder="Body" id="editor" name="body" rows="10">{{$posts->body}}</textarea>
     </div>
-    {{-- <div class="input-group mb-3">
-        <div class="custom-file">
-          <input type="file" class="custom-file-input" id="fileUpload" aria-describedby="inputGroupFileAddon01">
-          <label class="custom-file-label" for="uploadFile">Choose file</label>
+    <div class="form-group w-25 float-left">
+      <input type="file" class="form-control-file w-25 " id="fileUpload" name="image">
+      @error('image')
+        <div class="alert alert-danger">{{ $message }}
+          <button type="button" class="close" data-dismiss="alert">x</button>
         </div>
-    </div> --}}
-    <button type="submit" class="btn btn-warning">Update</button>
+      @enderror
+    </div>
+    <button type="submit" class="btn btn-warning w-25 rounded float-right">Update</button>
 </form>
 @endsection

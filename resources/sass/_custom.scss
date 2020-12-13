@@ -10,16 +10,31 @@ body{
 #search{
     background-color:#1f456a !important;
 }
+// Dropdown manipulation
 .dropdown-menu{
     background-color:#1f456a !important;
     color: azure !important;
 }
-// .dropdown-menu:hover{
-//     background-color:#818181 !important;
-// }
 .dropdown-item{
     color: azure !important;
 }
 .dropdown-item:hover{
     color: rgb(10, 10, 10) !important;
+}
+.page-item.active .page-link{
+    background-color:#1f456a !important;
+    border-color: black;
+}
+// Textarea in create post size
+.ck-editor__editable {
+    min-height: 200px !important;
+}
+// Mansory manipulation
+.card-columns {
+    @include media-breakpoint-only(lg) {
+      column-count: 3;
+    }
+    @include media-breakpoint-only(xl) {
+      column-count: 4;
+    }
 }

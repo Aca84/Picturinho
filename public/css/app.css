@@ -10932,6 +10932,29 @@ body {
   color: #0a0a0a !important;
 }
 
+.page-item.active .page-link {
+  background-color: #1f456a !important;
+  border-color: black;
+}
+
+.ck-editor__editable {
+  min-height: 200px !important;
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .card-columns {
+    -moz-column-count: 3;
+         column-count: 3;
+  }
+}
+
+@media (min-width: 1200px) {
+  .card-columns {
+    -moz-column-count: 4;
+         column-count: 4;
+  }
+}
+
 /*!
  * Font Awesome Free 5.15.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
