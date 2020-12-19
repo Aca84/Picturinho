@@ -1,13 +1,13 @@
 @extends('layouts.app')
 @section('content')
 
-<h2>Posts</h2> 
-
 <div class="card-columns">
 
     @foreach ($posts as $post)
-        <div class="card shadow">
-            <img src="/storage/images/{{$post->image}}" class="card-img-top" alt="Slika">
+        <div class="card shadow-sm">
+            <a href="/posts/{{$post->id}}">
+                <img src="/storage/images/{{$post->image}}" class="card-img-top" alt="Slika">
+            </a>
             <div class="card-body">
                 <h5 class="card-title"><a class="text-decoration-none text-dark" href="/posts/{{$post->id}}">{{$post->title}}</a></h5>
                 <p class="card-text">{!!$post->body!!}</p>
@@ -19,5 +19,5 @@
 
 </div>
     {{-- Pagination --}}
-    <div class="pagination justify-content-center w-100 mt-3">{{$posts->links()}}</div>     
+    <div class="pagination justify-content-center mt-3">{{$posts->links()}}</div>     
 @endsection

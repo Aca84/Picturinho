@@ -14,11 +14,6 @@
     </div>
     <div class="form-group w-25 float-left">
       <input type="file" class="form-control-file w-25 " id="fileUpload" name="image">
-      @error('image')
-        <div class="alert alert-danger">{{ $message }}
-          <button type="button" class="close" data-dismiss="alert">x</button>
-        </div>
-      @enderror
     </div>
     <button type="submit" class="btn btn-warning w-25 rounded float-right">Update</button>
 </form>

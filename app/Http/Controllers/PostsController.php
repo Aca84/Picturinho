@@ -31,6 +31,26 @@ class PostsController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+        // $request->validate(
+        //     ['search'=>'required|min:1']
+        // );
+
+        $search = $request->input('searchQuery');
+        // $posts = Post::search($search)->get(); // This will return search  result
+        // $posts = Post::search('title')->where('title', $search)->get(); // This will return search  result
+        $posts = Post::where('title', 'like', "%$search%")->get();
+        // $posts = Post::search("%$search%")->get();
+        // return dd($posts);
+        return view('search')->with('posts', $posts);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

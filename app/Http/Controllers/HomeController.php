@@ -26,7 +26,7 @@ class HomeController extends Controller
     public function index()
     {   
         $user_id = auth()->user()->id;
-        $user = User::find($user_id)->posts()->latest()->paginate(3);
+        $user = User::find($user_id)->posts()->latest()->paginate(5);
         return view('home')->with('posts', $user);
     }
 }

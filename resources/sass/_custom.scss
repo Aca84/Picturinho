@@ -7,8 +7,29 @@ body{
 .navbar{
     background-color:#1f456a !important;
 }
+// Search styling
 #search{
     background-color:#1f456a !important;
+    border-color: #1f456a;
+    width: 350px !important;
+    color: white !important;
+    font-size: 15px;
+}
+#search-clear{ //for white X, but not working
+    color: white !important;
+}
+// On top button
+#onTop {
+    // float: right;
+    // margin-bottom: 30px;
+    // margin-right: 30px;
+
+    // display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    // border: solid black;
+    // border-radius: 25px;
 }
 // Dropdown manipulation
 .dropdown-menu{
@@ -25,11 +46,11 @@ body{
     background-color:#1f456a !important;
     border-color: black;
 }
-// Textarea in create post size
+// Textarea in create post-size
 .ck-editor__editable {
     min-height: 200px !important;
 }
-// Mansory manipulation
+// Mansory manipulation from bootstrap
 .card-columns {
     @include media-breakpoint-only(lg) {
       column-count: 3;

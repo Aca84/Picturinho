@@ -10917,6 +10917,20 @@ body {
 
 #search {
   background-color: #1f456a !important;
+  border-color: #1f456a;
+  width: 350px !important;
+  color: white !important;
+  font-size: 15px;
+}
+
+#search-clear {
+  color: white !important;
+}
+
+#onTop {
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
 }
 
 .dropdown-menu {
