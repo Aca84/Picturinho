@@ -10904,7 +10904,9 @@ a.text-dark:focus {
 }
 
 body {
-  background-color: #e4e4e4;
+  background-color: #8ba8c9;
+  width: 100%;
+  height: 100%;
 }
 
 .main {
@@ -10933,6 +10935,11 @@ body {
   right: 10px;
 }
 
+.fa-angle-double-up:hover {
+  background-color: antiquewhite;
+  border-radius: 5px;
+}
+
 .dropdown-menu {
   background-color: #1f456a !important;
   color: azure !important;
@@ -10957,16 +10964,33 @@ body {
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .card-columns {
-    -moz-column-count: 3;
-         column-count: 3;
+    -moz-column-count: 5;
+         column-count: 5;
   }
 }
 
 @media (min-width: 1200px) {
   .card-columns {
-    -moz-column-count: 4;
-         column-count: 4;
+    -moz-column-count: 6;
+         column-count: 6;
   }
+}
+
+.card {
+  border-radius: 20px;
+  border: none;
+}
+
+.card-img-top {
+  border-radius: 20px 20px 0px 0px;
+}
+
+.card-deck {
+  border-radius: 20px 0px 0px 20px;
+}
+
+.card-img {
+  border-radius: 20px 0px 0px 20px;
 }
 
 /*!

@@ -25,7 +25,7 @@
             <div class="row w-100 mb-3 no-gutters">
                 <div class="col-4 h-100">
                     <a href="/posts/{{$post->id}}">
-                        <img src="/storage/images/{{$post->image}}" class="card-img-top" alt="Slika">
+                        <img src="/storage/images/{{$post->image}}" class="card-img" alt="Slika">
                     </a>
                 </div>
                 <div class="col-8 card p-2 ml-1">
