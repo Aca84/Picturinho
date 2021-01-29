@@ -66,6 +66,7 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+
             'title' => 'required',
             'body'  => 'required',
             // 'image' => 'image|nullable|mimes:jpeg,png,jpg,gif,svg|max:2048'
@@ -75,10 +76,12 @@ class PostsController extends Controller
         $user = auth()->user()->name; // User name for naming the image folder
         // Check if request has image in form
         if ($request->hasFile('image')) {
+            
             // Working upload shorter
             $fileNameToStore = $request->file('image')->getClientOriginalName();
-            $path = $request->file('image')->storeAs('public/images', $fileNameToStore); // All images in one folder
-            // $path = $request->file('image')->storeAs('public/images/'.$user, $fileNameToStore); // For every user create his (name) folder     
+            // $path = $request->file('image')->storeAs('public/images', $fileNameToStore); // All images in one folder
+            $path = $request->file('image')->storeAs('public/images/'.$user, $fileNameToStore); // For every user create his (name) folder 
+
         }else{
 
             $fileNameToStore = 'noimage.jpg';
@@ -118,6 +121,7 @@ class PostsController extends Controller
         $posts = Post::find($id);
         // Check for correct user 
         if(Auth::user()->id !== $posts->user_id){
+
             return redirect('/posts')->with('error', 'Nije moguce');
         } 
         return view('posts/edit')->with('posts',$posts);
@@ -133,12 +137,13 @@ class PostsController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
+
             'title' => 'required',
             'body'  => 'required',
             'image' => 'nullable|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);      
         // Check if request has image in form
-        $user = auth()->user()->name; // what user it is
+        $user = auth()->user()->name; // What user it is
         if ($request->hasFile('image')) {
 
             $fileNameToStore = $request->file('image')->getClientOriginalName();
@@ -148,7 +153,9 @@ class PostsController extends Controller
         $post = Post::find($id);
         $post->title = $request->input('title');
         $post->body = $request->input('body');
+        
         if ($request->hasFile('image')) {
+
             $post->image = $fileNameToStore;
         }
         $post->save();
@@ -167,15 +174,18 @@ class PostsController extends Controller
         $post = Post::find($id);
         // Check for correct user 
         if(Auth::user()->id !== $post->user_id){
+
             return redirect('/posts')->with('error', 'Nije moguce');
         } 
         // Delete image from folder
         $user = auth()->user()->name;
         $destinationPath = 'public/images/'.$user;
         if ($post->image != 'noimage.jpg') {
-            // Storage::delete('public/images/'.$post->image); //Working if img is in images folder
-            // Storage::delete(Storage::path($post->image));
-            Storage::delete('public/images/'.$user, $post->image); // Not deleting anything           
+
+            // Storage::delete('public/images/'.$post->image); // Working if img is in images folder
+            // Storage::delete(Storage::path($post->image)); // Shorter ver.
+            // Storage::delete('public/images/'.$user, $post->image); // Not deleting anything           
+            Storage::delete($destinationPath.$post->image); // Not deleting anything           
         }
         $post->delete();
 

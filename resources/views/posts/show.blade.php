@@ -2,11 +2,11 @@
 @section('content')
 
 {{-- Back button --}}
-@if(Auth::check() && Auth::user()->id == $posts->user_id)
-    <a class="text-secondary mb-2" href="/home"><i class="far fa-arrow-alt-circle-left fa-2x">back</i></a>
-@else {{-- For guest back button --}}
+{{-- @if(Auth::check() && Auth::user('id')->id == $posts->user_id) --}}
+    {{-- <a class="text-secondary mb-2" href="/home"><i class="far fa-arrow-alt-circle-left fa-2x">back</i></a> --}}
+{{-- @else For guest back button --}}
     <a class="text-secondary mb-2" href="/posts"><i class="far fa-arrow-alt-circle-left fa-2x">back</i></a>
-@endif
+{{-- @endif --}}
 
 <div class="card-deck">
     <div class="card w-100">
