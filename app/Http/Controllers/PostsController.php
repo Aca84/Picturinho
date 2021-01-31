@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class PostsController extends Controller
 {
@@ -171,7 +172,8 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::find($id);
+        // $post = Post::find($id);
+        $post = Post::findOrFail($id);
         // Check for correct user 
         if(Auth::user()->id !== $post->user_id){
 
@@ -179,13 +181,21 @@ class PostsController extends Controller
         } 
         // Delete image from folder
         $user = auth()->user()->name;
-        $destinationPath = 'public/images/'.$user;
+        $destinationPath = 'public/images/.$user.';
+        $img = $post->image;
+        // $img = $post['image'];
         if ($post->image != 'noimage.jpg') {
 
             // Storage::delete('public/images/'.$post->image); // Working if img is in images folder
-            // Storage::delete(Storage::path($post->image)); // Shorter ver.
-            // Storage::delete('public/images/'.$user, $post->image); // Not deleting anything           
-            Storage::delete($destinationPath.$post->image); // Not deleting anything           
+            Storage::delete('public/images/'.$user.'/'.$post->image); // This is working like charm, delleting img from user folder
+            
+            // Storage::delete($destinationPath->$img); // Trying to get property '.jpg' of non-object
+            // Storage::delete(Storage::path($post->image)); // Shorter ver.    
+            // Storage::delete('public/images/'.$user, $post->image); // Not deleting image from username storage, but delete post from db           
+            // Storage::delete($destinationPath.$img); // Not deleting image from username storage, but delete post from db           
+            // Storage::delete($user->$post['image']); // Not deleting anything        
+            // Storage::disk('images')->delete($post->image);  // Not deleting anything, disk not configured
+            // Storage::path($destinationPath)->delete($post->image);  // Call to a member function delete() on string
         }
         $post->delete();
 
