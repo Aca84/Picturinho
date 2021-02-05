@@ -17,7 +17,6 @@
                 <p class="card-text"><small class="text-muted">by {{$post->user['name']}} on {{$post->created_at->format('d-m-yy H:i')}}</small></p>
             </div>
         </div>         
-        </div>         
     @endforeach
 
 </div>
