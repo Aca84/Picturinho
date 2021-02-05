@@ -13,7 +13,8 @@
         <div class="row w-100 no-gutters">
             <div class="col-6 h-100">
                 <a href="/posts/{{$posts->id}}">
-                    <img src="/storage/images/{{$posts->image}}" class="card-img responsive" alt="Slika">
+                    {{-- <img src="/storage/images/{{$posts->image}}" class="card-img responsive" alt="Slika"> --}}
+                    <img src={{asset('/storage/images/'.$posts->user['name'].'/'.$posts->image)}} class="card-img-top" alt="Slika">
                 </a>
             </div>
             <div class="col-6 card m-0 p-2">

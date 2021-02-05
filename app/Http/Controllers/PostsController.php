@@ -28,6 +28,7 @@ class PostsController extends Controller
      */
     public function index()
     {
+        // $user = auth()->user()->name; // User name for naming the image folder
         $posts = Post::latest()->paginate(10); // This will return last created post on top
         return view('posts.index')->with('posts', $posts);
     }
@@ -181,21 +182,12 @@ class PostsController extends Controller
         } 
         // Delete image from folder
         $user = auth()->user()->name;
-        $destinationPath = 'public/images/.$user.';
-        $img = $post->image;
+        
         // $img = $post['image'];
         if ($post->image != 'noimage.jpg') {
 
             // Storage::delete('public/images/'.$post->image); // Working if img is in images folder
             Storage::delete('public/images/'.$user.'/'.$post->image); // This is working like charm, delleting img from user folder
-            
-            // Storage::delete($destinationPath->$img); // Trying to get property '.jpg' of non-object
-            // Storage::delete(Storage::path($post->image)); // Shorter ver.    
-            // Storage::delete('public/images/'.$user, $post->image); // Not deleting image from username storage, but delete post from db           
-            // Storage::delete($destinationPath.$img); // Not deleting image from username storage, but delete post from db           
-            // Storage::delete($user->$post['image']); // Not deleting anything        
-            // Storage::disk('images')->delete($post->image);  // Not deleting anything, disk not configured
-            // Storage::path($destinationPath)->delete($post->image);  // Call to a member function delete() on string
         }
         $post->delete();
 

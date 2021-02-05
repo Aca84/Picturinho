@@ -11,12 +11,13 @@
     <div class="row w-100 mb-3 no-gutters">
         <div class="col-4 h-100">
             <a href="/posts/{{$post->id}}">
-                <img src="/storage/images/{{$post->image}}" class="card-img rounded" alt="Slika">
+                {{-- <img src="/storage/images/{{$post->image}}" class="card-img rounded" alt="Slika"> --}}
+                <img src={{asset('/storage/images/'.$post->user['name'].'/'.$post->image)}} class="card-img-top" alt="Slika">
             </a>
         </div>
         <div class="col-8 card p-2 ml-1">
             <h4 class="card-title mt-2">
-                <a class="text-decoration-none text-dark" href="/posts/{{$post->id}}">{{$post->title}}</a>
+                <a class="text-decoration-none text-dark" href="/posts/{{$post->id}}">{{$post->title}}</a>              
             </h4>
             <p class="card-text h-100">{!!$post->body!!}</p>
             @if (!Auth::guest())

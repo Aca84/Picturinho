@@ -64,7 +64,7 @@ body{
       column-count: 5;
     }
     @include media-breakpoint-only(xl) {
-      column-count: 6;
+      column-count: 4;
     }
 }
 .card{
@@ -79,4 +79,8 @@ body{
 }
 .card-img{
     border-radius: 20px 0px 0px 20px; // left side rounded border
+}
+
+img{
+    width: 100% !important;
 }

@@ -11012,8 +11012,8 @@ body {
 
 @media (min-width: 1200px) {
   .card-columns {
-    -moz-column-count: 6;
-         column-count: 6;
+    -moz-column-count: 4;
+         column-count: 4;
   }
 }
 
@@ -11032,6 +11032,10 @@ body {
 
 .card-img {
   border-radius: 20px 0px 0px 20px;
+}
+
+img {
+  width: 100% !important;
 }
 
 /*!
