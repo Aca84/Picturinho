@@ -77,12 +77,11 @@ class PostsController extends Controller
 
         $user = auth()->user()->name; // User name for naming the image folder
         // Check if request has image in form
-        if ($request->hasFile('image')) {
-            
+        if ($request->hasFile('image')) {         
             // Working upload shorter
             $fileNameToStore = $request->file('image')->getClientOriginalName();
             // $path = $request->file('image')->storeAs('public/images', $fileNameToStore); // All images in one folder
-            $path = $request->file('image')->storeAs('public/images/'.$user, $fileNameToStore); // For every user create his (name) folder 
+            $path = $request->file('image')->storeAs('public/images/'.$user, $fileNameToStore); // For every user create user(name) folder 
 
         }else{
 
