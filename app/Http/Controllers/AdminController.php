@@ -27,10 +27,17 @@ class AdminController extends Controller
 
     public function index()
     {
-        if (Auth::user()->role('admin')) {
+        // if (Auth::user()->role ='admin') {
 
-            return view('admin.index');
-        }
+        //     return view('admin.index');
+        // }
+
+        if (Auth::check() && Auth::user()->role == 'admin') {
+            return view('/admin/index');
+        }   
+        if (Auth::check() && Auth::user()->role == 'user') {
+            return redirect('/home');
+        } 
 
         return redirect('posts');
     }

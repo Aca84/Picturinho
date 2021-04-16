@@ -29,7 +29,7 @@ class PostsController extends Controller
     public function index()
     {
         // $user = auth()->user()->name; // User name for naming the image folder
-        $posts = Post::latest()->paginate(10); // This will return last created post on top
+        $posts = Post::latest()->paginate(30); // This will return last created post on top
         return view('posts.index')->with('posts', $posts);
     }
 
