@@ -42,4 +42,11 @@ class AdminController extends Controller
         return redirect('posts');
     }
 
+    public function users()
+    {
+        $users = User::all();
+
+        return view('admin.index')->with('users', $users);
+    }
+
 }
