@@ -10,6 +10,7 @@
                     <th scope="col">Ime</th>
                     <th scope="col">Mail</th>
                     <th scope="col">Created</th>
+                    <th scope="col">Posts</th>
                     <th scope="col">Rola</th>
                     <th scope="col">Edit</th>
                     <th scope="col">Delete</th>
@@ -21,7 +22,10 @@
                     <th scope="row">{{$user->id}}</th>
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
-                    <td>{{$user->created_at}}</td>
+                    <td>{{$user->created_at->format('d-m-yy H:i')}}</td>
+                    <td>{{$user->posts->count()}} 
+                        {{-- Not working --}}
+                        {{-- <a class="text-decoration-none text-dark" href="/home/{{$user->user_id}}">>></a></td> --}} 
                     <td>
                         {{ $user->role }}
                         {{-- <select name="role" id="">

@@ -186,7 +186,7 @@ class PostsController extends Controller
         if ($post->image != 'noimage.jpg') {
 
             // Storage::delete('public/images/'.$post->image); // Working if img is in images folder
-            Storage::delete('public/images/'.$user.'/'.$post->image); // This is working like charm, delleting img from user folder
+            Storage::delete('public/images/'.$user.'/'.$post->image); // This is working like charm, deleting img from user folder
         }
         $post->delete();
 
