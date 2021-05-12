@@ -47,7 +47,7 @@ class AdminController extends Controller
         $users = User::all();
         $posts = Post::all();
 
-        return view('admin.index')->with('users', $users, $posts);
+        return view('admin.index')->with('users', $users)->with('posts', $posts);
     }
 
 }

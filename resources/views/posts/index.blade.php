@@ -14,7 +14,9 @@
                     <a class="text-decoration-none text-dark" href="/posts/{{$post->id}}">{{$post->title}}</a>
                 </h5>
                 {{-- <p class="card-text">{!!$post->body!!}</p> --}}
-                <p class="card-text"><small class="text-muted">by {{$post->user['name']}} on {{$post->created_at->format('d-m-yy H:i')}}</small></p>
+                <p class="card-text">
+                    <small class="text-muted">by {{$post->user['name']}} on {{$post->created_at->format('d-m-yy H:i')}}</small>
+                </p>
             </div>
         </div>         
     @endforeach
