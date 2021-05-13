@@ -120,8 +120,14 @@ class PostsController extends Controller
     public function edit($id)
     {
         $posts = Post::find($id);
+
+        // Check admin auth
+        // if (Auth::user()->role == 'admin') {
+
+        //     return view('posts/edit')->with('posts',$posts);
+        // }
         // Check for correct user 
-        if(Auth::user()->id !== $posts->user_id){
+        if(Auth::user()->id !== $posts->user_id && Auth::user()->role !== 'admin'){
 
             return redirect('/posts')->with('error', 'Nije moguce');
         } 

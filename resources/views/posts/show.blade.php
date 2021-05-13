@@ -25,9 +25,14 @@
                 <p class="card-text">
                     <small class="text-muted">by {{$posts->user['name']}} on {{$posts->created_at->format('d-m-yy H:i')}}</small>
                 </p>
-                @if (!Auth::guest())
+
+                
+                @if (!Auth::guest())          
                 {{-- Check if logged user is auth user for edit/delete post --}}
-                @if(Auth::user()->id == $posts->user_id) 
+                @if (Auth::user()->role == 'admin') 
+
+                @if (Auth::user()->id == $posts->user_id) 
+                                
                 <div class="card-footer position-static d-flex justify-content-end">
                     <a href="/posts/{{$posts->id}}/edit" class="btn btn-primary text-decoration-none mx-2"><i class="far fa-edit"></i></a>
                     <form method="POST" action="{{action('App\Http\Controllers\PostsController@destroy', $posts->id)}}">
@@ -36,6 +41,8 @@
                         <button type="submit" class="btn btn-danger float-right"><i class="far fa-trash-alt"></i></button>
                     </form>
                 </div>
+
+                @endif
                 @endif
                 @endif
             </div>      

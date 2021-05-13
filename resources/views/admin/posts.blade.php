@@ -1,4 +1,5 @@
 <div class="table-responsive border-primary bg-light rounded">
+
     <table class="table"> 
         <thead>
             <tr>
@@ -19,22 +20,27 @@
             <td class="mw-auto">
                 <a class="text-decoration-none text-dark " href="/posts/{{$post->id}}">{{$post->title}}</a>
             </td> 
-            {{-- <td>{{$post->title}}</td>  --}}
-            <td class="" style="max-width: 500px;">{!!$post->body!!}</td> 
+            <td class="" style="max-width: 550px;">{!!$post->body!!}</td> 
             <td>{{$post->created_at->format('d-m-yy H:i')}}</td> 
             <td>{{$post->user->name}}</td> 
-            {{-- <td class="">{{$post->image}}</td>  --}}
             <td>
                 <img src={{asset('/storage/images/'.$post->user['name'].'/'.$post->image)}} style="max-width: 150px;" alt="Slika">
             </td> 
             <td>
-                <button type="button" class="btn-sm btn-warning">Edit</button>
+                <button type="button" class="btn-sm border border-secondary">
+                    <a href="/posts/{{$post->id}}/edit"><i class="far fa-edit"></i></a>
+                </button>
             </td> 
             <td>
-                <button type="button" class="btn-sm btn-danger">Delete</button>
+                <form method="POST" action="{{action('App\Http\Controllers\PostsController@destroy', $post->id)}}">
+                @method('DELETE')
+                @csrf
+                <button type="submit" class="btn-sm border border-secondary"><i class="far fa-trash-alt"></i></button>
+                </form>
             </td> 
         </tr>
     </tbody>
     @endforeach
     </table>
+    
 </div>

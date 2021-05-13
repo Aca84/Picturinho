@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
 use App\Models\User;
 
@@ -25,8 +26,10 @@ class HomeController extends Controller
      */
     public function index()
     {   
+        
         $user_id = auth()->user()->id;
         $user = User::find($user_id)->posts()->latest()->paginate(5);
         return view('home')->with('posts', $user); //returns to users homepage
+        
     }
 }

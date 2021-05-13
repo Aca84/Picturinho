@@ -21,7 +21,7 @@
     <td>{{$user->created_at->format('d-m-yy H:i')}}</td>
     <td>{{$user->posts->count()}} 
         {{-- Not working --}}
-        {{-- <a class="text-decoration-none text-dark" href="/home/{{$user->user_id}}">>></a></td>  --}}
+        <a class="text-decoration-none text-dark" href="/home/{{$user->user_id}}">>></a></td> 
     <td>
         {{ $user->role }}
             {{-- <select name="role" id="">
@@ -30,10 +30,10 @@
             </select>              --}}
             </td>
             <td>
-                <button type="button" class="btn-sm btn-warning">Edit</button>
+                <button type="button" class="btn-sm border border-secondary"><i class="far fa-edit"></i></button>
             </td> 
             <td>
-                <button type="button" class="btn-sm btn-danger">Delete</button>
+                <button type="button" class="btn-sm border border-secondary"><i class="far fa-trash-alt"></i></button>
             </td> 
             </tr>
         </tbody>
