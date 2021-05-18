@@ -39,16 +39,4 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
         return redirect('/posts/index');
     }
-
-    // public function admin(Request $request, Auth $user)
-    // {
-    //     if (Auth::check() && Auth::user()->role == 'admin') {
-    //         // return view('/admin/index');
-    //         return redirect('/admin');
-    //     }   
-    //     if (Auth::check() && Auth::user()->role == 'user') {
-    //         return redirect('/home');
-    //     } 
-    //     return redirect('/posts');
-    // }
 }

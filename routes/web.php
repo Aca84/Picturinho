@@ -25,5 +25,3 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/search', [App\Http\Controllers\PostsController::class, 'search'])->name('search');
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
-Route::get('/admin', [App\Http\Controllers\AdminController::class, 'users'])->name('admin');
-// Route::get('/admin/index', [App\Http\Controllers\Auth\LoginController::class, 'admin'])->name('admin'); Not working yet

@@ -18,7 +18,6 @@ class AdminController extends Controller
     {
         $this->middleware('auth');
     }
-
     /**
      * Show the application dashboard.
      *
@@ -27,27 +26,17 @@ class AdminController extends Controller
 
     public function index()
     {
-        // if (Auth::user()->role ='admin') {
-
-        //     return view('admin.index');
-        // }
-
-        if (Auth::check() && Auth::user()->role == 'admin') {
-            return view('/admin/index');
-        }   
-        if (Auth::check() && Auth::user()->role == 'user') {
-            return redirect('/home');
-        } 
-
-        return redirect('posts');
-    }
-
-    public function users()
-    {
+        if (Auth::user()->role == 'admin') {
+            // return view('admin.index');
+           
+   
         $users = User::latest()->get();
         $posts = Post::latest()->get();
 
         return view('admin.index')->with('users', $users)->with('posts', $posts);
-    }
+        }
 
+
+        return redirect('/posts')->with('error', 'Samo Admin');
+    }
 }
