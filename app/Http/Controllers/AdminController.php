@@ -23,20 +23,16 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-
     public function index()
     {
         if (Auth::user()->role == 'admin') {
-            // return view('admin.index');
-           
-   
+                       
         $users = User::latest()->get();
         $posts = Post::latest()->get();
 
         return view('admin.index')->with('users', $users)->with('posts', $posts);
         }
 
-
-        return redirect('/posts')->with('error', 'Samo Admin');
+        return redirect('/posts')->with('error', 'Only Admin');
     }
 }

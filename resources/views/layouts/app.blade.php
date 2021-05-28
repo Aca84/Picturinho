@@ -33,6 +33,12 @@
                     {{session('success')}}
                 </div>  
                 @endif
+                @if (session('error'))
+                <div id="alert" class="alert alert-danger text-center mx-auto">   
+                    <button type="button" class="close" data-dismiss="alert">x</button>     
+                    {{session('error')}}
+                </div>  
+                @endif
 
             <div class="main">
                 @yield('content')
