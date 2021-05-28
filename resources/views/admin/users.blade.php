@@ -32,10 +32,10 @@
                 </select> --}}
         </td>
         <td>
-            <button type="button" class="btn-sm border border-secondary"><i class="far fa-edit"></i></button>
+            <button type="button" class="btn-sm border border-info"><i class="far fa-edit"></i></button>
         </td> 
         <td>
-            <button type="button" class="btn-sm border border-secondary"><i class="far fa-trash-alt"></i></button>
+            <button type="button" class="btn-sm border border-danger"><i class="far fa-trash-alt"></i></button>
         </td> 
     </tr>
         </tbody>

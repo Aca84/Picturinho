@@ -27,7 +27,7 @@
                 <img src={{asset('/storage/images/'.$post->user['name'].'/'.$post->image)}} style="max-width: 150px;" alt="Slika">
             </td> 
             <td>
-                <button type="button" class="btn-sm border border-secondary">
+                <button type="button" class="btn-sm border border-info">
                     <a href="/posts/{{$post->id}}/edit"><i class="far fa-edit"></i></a>
                 </button>
             </td> 
@@ -35,7 +35,7 @@
                 <form method="POST" action="{{action('App\Http\Controllers\PostsController@destroy', $post->id)}}">
                 @method('DELETE')
                 @csrf
-                <button type="submit" class="btn-sm border border-secondary"><i class="far fa-trash-alt"></i></button>
+                <button type="submit" class="btn-sm border border-danger"><i class="far fa-trash-alt"></i></button>
                 </form>
             </td> 
         </tr>
